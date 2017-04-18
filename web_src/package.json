@@ -4,12 +4,12 @@
   "description": "This project is a React SpringBoot that you simply start working on project right away",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/webpack-dev-server --hot --host 0.0.0.0"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "babel": "^6.23.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "webpack": "^2.4.1",

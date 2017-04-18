@@ -4,7 +4,11 @@ class App extends React.Component {
     render(){
 
         return (
-                <h1>Hello React Skeleton</h1>
+                <div>
+                    <h1>SpringBoot ReactJS Start!!</h1>
+                    <h2>SpringBoot ReactJS Start!!</h2>
+                    <h3>SpringBoot ReactJS Start!!</h3>
+                </div>
         );
     }
 }

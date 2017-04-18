@@ -29,10 +29,4 @@ gulp.task('build', ['clean'], function() {
 	);
 });
 
-// bundle watch
-gulp.task('watch', function() {
-	//gulp.watch(['examples/**/*.js', '!examples/js/*.js'], ['example']);
-	gulp.watch(['./dist/**/*.js'], ['build']);
-});
-
 gulp.task('default', ['build']);

@@ -1,14 +1,14 @@
 import React from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import MyAwesomeReactComponent from './MyAwesomeReactComponent';
 
 class App extends React.Component {
     render(){
 
         return (
-                <div>
-                    <h1>SpringBoot ReactJS Start!!</h1>
-                    <h2>SpringBoot ReactJS Start!!</h2>
-                    <h3>SpringBoot ReactJS Start!!</h3>
-                </div>
+            <MuiThemeProvider>
+                <MyAwesomeReactComponent />
+            </MuiThemeProvider>
         );
     }
 }

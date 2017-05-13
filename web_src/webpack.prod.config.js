@@ -6,12 +6,6 @@ module.exports = {
         filename: 'bundle.js'
     },
 
-    devServer: {
-        inline: true,
-        port: 7777,
-        contentBase: __dirname + '/dist'
-    },
-
     module:
     {
         loaders: [

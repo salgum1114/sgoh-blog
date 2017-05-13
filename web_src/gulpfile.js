@@ -11,7 +11,7 @@ var del = require('del');
 var merge2 = require('merge2');
 var multiDest = require('gulp-multi-dest')
 
-var webpackConfig = require('./webpack.config.js');
+var webpackConfig = require('./webpack.prod.config.js');
 
 var paths = {
 	bundle: '../src/main/webapp/js/*.*',
@@ -43,7 +43,7 @@ gulp.task('build', ['clean', 'clean.css', 'clean.html'], function() {
 			.pipe(gulp.dest('../src/main/webapp/js/')),
 		gulp.src('./src/index.html')
 			.pipe(gulp.dest('../src/main/webapp/views/')),
-		gulp.src('./less/*.less')
+		gulp.src('./less/common.less')
 			.pipe(less())
 			// .pipe(uglifycss())
 			.pipe(rename({extname: '.min.css'}))

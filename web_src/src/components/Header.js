@@ -6,6 +6,9 @@ class Header extends Component {
         super(props);
     }
 
+    componentDidMount() {
+    }
+
     render() {
         return (
             <header id="header">

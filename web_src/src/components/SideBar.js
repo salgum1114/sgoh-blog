@@ -45,7 +45,9 @@ class SideBar extends Component {
         return (
             <div id="sidedrawer" className="mui--no-user-select">
                 <div id="sidedrawer-brand" className="mui--appbar-line-height">
-                    <span className="mui--text-title">Brand.io</span>
+                    <span className="mui--text-title">
+                        Study
+                    </span>
                 </div>
                 <div className="mui-divider"></div>
                 <ul>

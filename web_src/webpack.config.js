@@ -1,42 +1,16 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 
-var source_dir = __dirname + '/../src/main/webapp/js/';
-var view_dir = __dirname + '/../src/main/webapp/views/';
-
 module.exports = {
-    devtool: 'inline source-map',
-
-    entry: [
-        'webpack-dev-server/client?http://localhost:3000',
-        'webpack/hot/only-dev-server',
-        './src/index.js'
-    ],
+    entry: './src/index.js',
 
     output: {
-        path: source_dir,
-        publicPath: 'http://localhost:3000/',
+        path: __dirname + '/dist',
         filename: 'bundle.js'
     },
 
-    devServer: {
-        inline: true,
-        port: 3000,
-        publicPath: 'http://localhost:3000/',
-        proxy: {
-            "**": {
-                target: "http://localhost:8080",
-                secure: false,
-                prependPath: false
-            }
-        }
-    },
-
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin(),
-        new HtmlWebpackPlugin({
-            template: view_dir + 'index.html'
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('production')
         })
     ],
 
@@ -48,7 +22,7 @@ module.exports = {
                 exclude: /node_modules/,
                 query: {
                     cacheDirectory: true,
-                    presets: ['es2015', 'react']
+                    presets: ['es2015', 'stage-0', 'react']
                 }
             }
         ]

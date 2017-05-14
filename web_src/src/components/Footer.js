@@ -11,7 +11,7 @@ class Footer extends Component {
             <footer id="footer">
                 <div className="mui-container-fluid">
                     <br />
-                    Made with ♥ by <a href="https://www.muicss.com">MUI</a>
+                    Made with by <a href="https://github.com/salgum1114/sgoh-blog" target="_blank">sgoh</a>
                 </div>
             </footer>
         );

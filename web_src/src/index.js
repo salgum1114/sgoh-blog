@@ -7,7 +7,7 @@ injectTapEventPlugin();
 
 import Main from './components/Main';
 
-const rootElement = document.getElementById('root');    
+let rootElement = document.getElementById('root');
 ReactDOM.render(
     <MuiThemeProvider>
         <Main />

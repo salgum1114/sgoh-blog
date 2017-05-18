@@ -35,11 +35,11 @@ class Card extends Component {
         return (
             <div className="demo-card-wide mdl-card mdl-shadow--2dp">
                 <div className="mdl-card__title">
-                    <Avatar className="mdl-card-avatar" src="../assets/images/sgoh.jpg" />
+                    <Avatar className="mdl-card-avatar" src="../vendors/images/sgoh.jpg" />
                     <h2 className="mdl-card__title-text">Welcome</h2>
                 </div>
                 <div className="mdl-card__media">
-                    <img src="../assets/images/wood.jpg" style={{width: "100%"}}/>
+                    <img src="../vendors/images/wood.jpg" style={{width: "100%"}}/>
                 </div>
                 <div className="mdl-card__supporting-text">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.

@@ -1,47 +1,34 @@
 const webpack = require('webpack');
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const devPort = 8081;
-
 module.exports = {
-    devtool: 'inline-source-map',
-
-    entry: [
-        'webpack-dev-server/client?http://localhost:${devPort}',
-        'webpack/hot/only-dev-server',
-        './src/index.js'
-    ],
-
-    output: {
-        path: path.join(__dirname, 'dist'),
-        publicPath: '/',
-        filename: 'bundle.js'
+    entry: {
+        app: ['./src/index.js'],
     },
 
-    devServer: {
-        inline: true,
-        port: devPort,
-        contentBase: path.join(__dirname, 'dist'),
-        hot: true
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: '[name].bundle.js',
+        publicPath: '/'
     },
 
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin(),
-        new HtmlWebpackPlugin({
-            template: __dirname + '/src/index.html'
-        }),
-        new ExtractTextPlugin({
-            filename: 'common.css'
+        new webpack.LoaderOptionsPlugin({
+            minimize: true
         }),
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: true,
             compress: {
-                warnings: false
-            },
+                warnings: false,
+            }
         }),
+        new webpack.EnvironmentPlugin({
+            NODE_ENV: 'production'
+        }),
+        new ExtractTextPlugin({
+            filename: 'app.css'
+        })
     ],
 
     module: {

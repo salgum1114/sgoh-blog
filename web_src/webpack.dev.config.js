@@ -1,3 +1,5 @@
+'use strict';
+
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -8,40 +10,45 @@ const devPort = 8081;
 module.exports = {
     devtool: 'inline-source-map',
 
-    entry: [
-        'webpack-dev-server/client?http://localhost:${devPort}',
-        'webpack/hot/only-dev-server',
-        './src/index.js'
-    ],
+    entry: {
+        app: [
+            'react-hot-loader/patch',
+            'webpack-dev-server/client?http://localhost:'+devPort,
+            'webpack/hot/only-dev-server',
+            path.join(__dirname, 'src/index.js')
+        ]
+    },
 
     output: {
-        path: path.join(__dirname, 'dist'),
+        path: path.join(__dirname, 'public'),
         publicPath: '/',
-        filename: 'bundle.js'
+        filename: '[name].bundle.js'
     },
 
     devServer: {
         inline: true,
         port: devPort,
-        contentBase: path.join(__dirname, 'dist'),
-        hot: true
+        contentBase: path.join(__dirname, 'public'),
+        hot: true,
+        publicPath: '/',
+        historyApiFallback: true,
+        proxy: {
+            "**": {
+                target: "http://localhost:8080",
+                secure: false,
+                prependPath: false
+            }
+        }
     },
 
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),
         new HtmlWebpackPlugin({
+            filename: 'index.html',
             template: __dirname + '/src/index.html'
-        }),
-        new ExtractTextPlugin({
-            filename: 'common.css'
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
-            compress: {
-                warnings: false
-            },
-        }),
+        })
     ],
 
     module: {
@@ -52,15 +59,13 @@ module.exports = {
                 include: path.resolve(__dirname, 'src'),
                 options: {
                     presets: [['es2015', { modules: false }], 'stage-0', 'react'],
+                    plugins: ['react-hot-loader/babel']
                 },
                 exclude: /node_modules/,
             },
             {
-                test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ['css-loader', 'less-loader']
-                })
+                test: /\.(css|less)$/,
+                use: ['style-loader', 'css-loader', 'less-loader']
             }
         ]
     }

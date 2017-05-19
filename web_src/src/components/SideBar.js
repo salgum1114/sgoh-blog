@@ -1,4 +1,7 @@
+'use strict';
+
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class SideBar extends Component {
 
@@ -52,28 +55,31 @@ class SideBar extends Component {
                 <div className="mui-divider"></div>
                 <ul>
                     <li>
-                        <strong>Category 1</strong>
+                        <Link to="/"><strong>Home</strong></Link>
+                        {/*<strong>Category 1</strong>
                         <ul>
                             <li><a href="#">Item 1</a></li>
                             <li><a href="#">Item 2</a></li>
                             <li><a href="#">Item 3</a></li>
-                        </ul>
+                        </ul>*/}
                     </li>
                     <li>
-                        <strong>Category 2</strong>
+                        <Link to="/about"><strong>About</strong></Link>
+                        {/*<strong>Category 2</strong>
                         <ul>
                             <li><a href="#">Item 1</a></li>
                             <li><a href="#">Item 2</a></li>
                             <li><a href="#">Item 3</a></li>
-                        </ul>
+                        </ul>*/}
                     </li>
                     <li>
-                        <strong>Category 3</strong>
+                        <Link to="/posts"><strong>Post</strong></Link>
+                        {/*<strong>Category 3</strong>
                         <ul>
                             <li><a href="#">Item 1</a></li>
                             <li><a href="#">Item 2</a></li>
                             <li><a href="#">Item 3</a></li>
-                        </ul>
+                        </ul>*/}
                     </li>
                 </ul>
             </div>

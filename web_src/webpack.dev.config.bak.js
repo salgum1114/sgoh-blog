@@ -1,3 +1,5 @@
+'use strict';
+
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 

@@ -8,7 +8,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 injectTapEventPlugin();
 
-import '../less/common.less';
+import './less/app.less';
 import Main from './components/Main';
 
 let rootElement = document.getElementById('root');

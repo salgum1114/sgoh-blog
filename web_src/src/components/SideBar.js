@@ -49,7 +49,7 @@ class SideBar extends Component {
             <div id="sidedrawer" className="mui--no-user-select">
                 <div id="sidedrawer-brand" className="mui--appbar-line-height">
                     <span className="mui--text-title">
-                        Study
+                        <Link to="/"><strong>saglum1114</strong></Link>
                     </span>
                 </div>
                 <div className="mui-divider"></div>

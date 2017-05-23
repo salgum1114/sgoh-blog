@@ -4,10 +4,12 @@ import React,{ Component } from 'react';
 import Header from './Header';
 import SideBar from './SideBar';
 import Footer from './Footer';
-import Content from './Content';
-import About from './About';
-import NoMatch from './NoMatch';
+import AsyncComponent from './AsyncComponent';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+const About = AsyncComponent(() => import('./About').then(module => module.default), {name: 'About'});
+const Posts = AsyncComponent(() => import('./Posts').then(module => module.default), {name: 'Posts'});
+const NoMatch = AsyncComponent(() => import('./NoMatch').then(module => module.default), {name: 'NoMatch'});
 
 class Main extends Component {
 
@@ -22,15 +24,9 @@ class Main extends Component {
                     <SideBar />
                     <Header />
                     <Switch>
-                        <Route exact path="/" getComponent={(location, callback) => {
-                            require.ensure([], (require) => {
-                                callback(null, require('./Content').default);
-                            }, 'Content');
-                        }} />
-                        <Route path="/about" getComponent={(location, callback) => {
-                            
-                        }}/>
-                        <Route path="/posts" component={Content} />
+                        <Route exact path="/" component={Posts} />
+                        <Route path="/About" component={About} />
+                        <Route path="/Posts" component={Posts} />
                         <Route component={NoMatch} />
                     </Switch>
                     <Footer />

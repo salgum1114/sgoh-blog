@@ -12,7 +12,7 @@ var del = require('del');
 var merge2 = require('merge2');
 var multiDest = require('gulp-multi-dest')
 
-var webpackConfig = require('./webpack.config.js');
+// var webpackConfig = require('./webpack.config.js');
 
 var paths = {
 	bundle: '../src/main/webapp/js/*.*',
@@ -52,7 +52,7 @@ gulp.task('build', ['clean', 'clean.html'], function() {
 gulp.task('build.css', ['clean.css'], function() {
 	var rename = require('gulp-rename');
 	return merge2(
-		gulp.src('./less/**/*.less')
+		gulp.src('./src/less/**/*.less')
 			.pipe(concat('common.less'))
 			.pipe(less())
 			.pipe(production(uglifycss()))

@@ -81,6 +81,15 @@ class SideBar extends Component {
                             <li><a href="#">Item 3</a></li>
                         </ul>*/}
                     </li>
+                    <li>
+                        <Link to="/login"><strong>Login</strong></Link>
+                        {/*<strong>Category 3</strong>
+                        <ul>
+                            <li><a href="#">Item 1</a></li>
+                            <li><a href="#">Item 2</a></li>
+                            <li><a href="#">Item 3</a></li>
+                        </ul>*/}
+                    </li>
                 </ul>
             </div>
         );

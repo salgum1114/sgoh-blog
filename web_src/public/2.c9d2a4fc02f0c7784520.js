@@ -1,0 +1,2 @@
+webpackJsonp([2],{393:function(e,t,a){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var l=a(3),n=function(e){return e&&e.__esModule?e:{default:e}}(l),u=function(){return n.default.createElement("div",{id:"content-wrapper"},n.default.createElement("div",{className:"mui--appbar-height"}),n.default.createElement("div",{className:"mui-container-fluid"},n.default.createElement("h1",null,"Hello!")))};t.default=u}});
+//# sourceMappingURL=2.c9d2a4fc02f0c7784520.js.map

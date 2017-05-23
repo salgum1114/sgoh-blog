@@ -26,6 +26,10 @@ app.get('/about', (req, res) => {
     return res.send('Can you hear me?');
 });
 
+app.get('/login', (req, res) => {
+    return res.send('Can you hear me?');
+});
+
 import posts from './routes/posts';
 app.use('/posts', posts);
 

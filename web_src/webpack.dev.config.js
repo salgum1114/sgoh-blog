@@ -43,11 +43,10 @@ module.exports = {
     },
 
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin(),
-        new webpack.NoEmitOnErrorsPlugin(),
-        // app.js에 들어갈만한 내용을 vendor로 빼주는 플러그인
-        new webpack.optimize.CommonsChunkPlugin({
+        new webpack.HotModuleReplacementPlugin(), // HMR을 사용하기 위한 플러그인
+        new webpack.NamedModulesPlugin(), //브라우저에서 HMR 에러발생시 module name 표시
+        new webpack.NoEmitOnErrorsPlugin(), // console에 에러로그 찍어줌
+        new webpack.optimize.CommonsChunkPlugin({ // app.js에 들어갈만한 내용을 vendor로 빼주는 플러그인
             name: 'vendor',
             minChunks: function (module) {
                 // this assumes your vendor imports exist in the node_modules directory
@@ -69,7 +68,7 @@ module.exports = {
                 loader: 'babel-loader',
                 include: path.resolve(__dirname, 'src'),
                 options: {
-                    presets: [['es2015', { modules: false }], 'stage-0', 'react'],
+                    presets: [['es2015', { modules: false }], 'stage-0', 'react', 'flow'],
                     plugins: ['react-hot-loader/babel']
                 },
                 exclude: /node_modules/,

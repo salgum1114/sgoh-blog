@@ -8,9 +8,6 @@ class Header extends Component {
         super(props);
     }
 
-    componentDidMount() {
-    }
-
     render() {
         return (
             <header id="header">
@@ -22,7 +19,7 @@ class Header extends Component {
                         <a className="sidedrawer-toggle mui--hidden-xs mui--hidden-sm js-hide-sidedrawer">
                             <i className="icon-menu"></i>
                         </a>
-                        <span className="mui--text-title mui--hidden-xs-inline-block">salgum1114's blog</span>
+                        <span className="mui--text-title mui--hidden-xs-inline-block">ThingStar</span>
                         <span className="mui--pull-right">
                             <a className="sidedrawer-toggle mui--visible-xs">
                                 <i className="icon-github"></i>

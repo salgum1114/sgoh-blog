@@ -49,7 +49,7 @@ class SideBar extends Component {
             <div id="sidedrawer" className="mui--no-user-select">
                 <div id="sidedrawer-brand" className="mui--appbar-line-height">
                     <span className="mui--text-title">
-                        <Link to="/"><strong>saglum1114</strong></Link>
+                        <Link to="/"><strong>ThingStar</strong></Link>
                     </span>
                 </div>
                 <div className="mui-divider"></div>
@@ -73,7 +73,7 @@ class SideBar extends Component {
                         </ul>*/}
                     </li>
                     <li>
-                        <Link to="/posts"><strong>Post</strong></Link>
+                        <Link to="/dashboard"><strong>Dashboard</strong></Link>
                         {/*<strong>Category 3</strong>
                         <ul>
                             <li><a href="#">Item 1</a></li>
@@ -82,7 +82,7 @@ class SideBar extends Component {
                         </ul>*/}
                     </li>
                     <li>
-                        <Link to="/login"><strong>Login</strong></Link>
+                        <Link to="/counter"><strong>Counter</strong></Link>
                         {/*<strong>Category 3</strong>
                         <ul>
                             <li><a href="#">Item 1</a></li>

@@ -8,9 +8,8 @@
     "build": "set NODE_ENV=production&&webpack -p --config webpack.prod.config.js",
     "build:server": "babel ./server --out-dir build/",
     "start:prod": "set NODE_ENV=production&&node ./build/server.js",
-    "start:dev": "webpack-dev-server --config webpack.dev.config.js --inline",
-    "start": "set NODE_ENV=development&&node ./build/server.js",
-    "flow": "flow"
+    "dev": "webpack-dev-server --config webpack.dev.config.js --inline",
+    "start": "set NODE_ENV=development&&node ./build/server.js"
   },
   "author": "",
   "license": "ISC",
@@ -37,7 +36,6 @@
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.1",
     "extract-text-webpack-plugin": "^2.1.0",
-    "flow-bin": "^0.46.0",
     "html-webpack-plugin": "^2.28.0",
     "less": "^2.7.2",
     "less-loader": "^4.0.3",

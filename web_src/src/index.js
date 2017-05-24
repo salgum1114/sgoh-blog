@@ -2,35 +2,40 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import configureStore from './store/configureStore';
 import { AppContainer } from 'react-hot-loader';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 injectTapEventPlugin();
 
 import '../less/app.less';
-import Main from './components/Main';
+import App from './containers/App';
+import rootReducer from './reducers';
+
+const store = createStore(rootReducer, compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
 
 let rootElement = document.getElementById('root');
 const render = Component => {
     ReactDOM.render(
-            <Provider store={configureStore}>
-        <AppContainer>
+        <Provider store={store}>
+            <AppContainer>
                 <MuiThemeProvider>
-                        <Component />
+                    <Component />
                 </MuiThemeProvider>
-        </AppContainer>
-            </Provider>
+            </AppContainer>
+        </Provider>
         , rootElement
     );
 }
 
-render(Main);
+render(App);
 
 if (module.hot) {
-    module.hot.accept('./components/Main', () => {
-        render(Main);
+    module.hot.accept('./containers/App', () => {
+        render(App);
     });
 }

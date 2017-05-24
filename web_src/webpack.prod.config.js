@@ -64,7 +64,7 @@ module.exports = {
                 loader: 'babel-loader',
                 include: path.resolve(__dirname, 'src'),
                 options: {
-                    presets: [['es2015', { modules: false }], 'stage-0', 'react', 'flow'],
+                    presets: [['es2015', { modules: false }], 'stage-0', 'react'],
                 },
                 exclude: /node_modules/,
             },

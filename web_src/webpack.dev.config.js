@@ -68,8 +68,8 @@ module.exports = {
                 loader: 'babel-loader',
                 include: path.resolve(__dirname, 'src'),
                 options: {
-                    presets: [['es2015', { modules: false }], 'stage-0', 'react', 'flow'],
-                    plugins: ['react-hot-loader/babel']
+                    presets: [['es2015', { modules: false }], 'stage-0', 'react'],
+                    plugins: ['react-hot-loader/babel', "syntax-dynamic-import"]
                 },
                 exclude: /node_modules/,
             },

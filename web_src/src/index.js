@@ -16,7 +16,11 @@ import '../less/app.less';
 import App from './containers/App';
 import rootReducer from './reducers';
 
-const store = createStore(rootReducer, compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
+let enhancer = applyMiddleware(thunk);
+if(process.env.NODE_ENV === 'development') {
+    enhancer = compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+}
+const store = createStore(rootReducer, enhancer);
 
 let rootElement = document.getElementById('root');
 const render = Component => {

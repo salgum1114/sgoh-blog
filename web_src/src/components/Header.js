@@ -1,14 +1,36 @@
 'use strict';
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
+
+    static propTypes = {
+        isLoggedIn: PropTypes.bool.isRequired
+    }
+
+    static defaultProps = {
+        isLoggedIn: false
+    }
 
     constructor(props) {
         super(props);
     }
 
     render() {
+        const loginButton = (
+            <Link to="/login" className="sidedrawer-toggle mui--visible-xs">
+                <i className="material-icons">vpn_key</i>
+            </Link>
+        );
+
+        const logoutButton = (
+            <Link to="/" className="sidedrawer-toggle mui--visible-xs">
+                <i className="material-icons">lock_open</i>
+            </Link>
+        );
+
         return (
             <header id="header">
                 <div className="mui-appbar mui--appbar-line-height">
@@ -21,6 +43,7 @@ class Header extends Component {
                         </a>
                         <span className="mui--text-title mui--hidden-xs-inline-block">ThingStar</span>
                         <span className="mui--pull-right">
+                            { this.props.isLoggedIn ? logoutButton : loginButton }
                             <a className="sidedrawer-toggle mui--visible-xs">
                                 <i className="icon-github"></i>
                             </a>

@@ -24,4 +24,6 @@ dist/
 nbdist/
 .nb-gradle/
 /web_src/node_modules/
+/web_src/build/
+/web_src/public/
 /bin/

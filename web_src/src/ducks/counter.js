@@ -1,5 +1,23 @@
-import * as types from './ActionTypes';
 import axios from 'axios';
+
+export const INCREMENT = "INCREMENT";
+export const DECREMENT = "DECREMENT";
+
+const initialState = {
+    number: 0
+};
+
+export default function counter(state = initialState, action) {
+    console.log(action.number);
+    switch(action.type) {
+        case types.INCREMENT:
+            return { ...state, number: action.number + 1 };
+        case types.DECREMENT:
+            return { ...state, number: action.number - 1 };
+        default:
+            return state;
+    }
+}
 
 export function increment(number) {
     return {

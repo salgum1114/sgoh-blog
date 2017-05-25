@@ -5,7 +5,8 @@ import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -16,11 +17,10 @@ import '../less/app.less';
 import App from './containers/App';
 import rootReducer from './reducers';
 
-let enhancer = applyMiddleware(thunk);
-if(process.env.NODE_ENV === 'development') {
-    enhancer = compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-}
-const store = createStore(rootReducer, enhancer);
+const loggerMiddleware = createLogger(); // 액션을 로깅하게 해줌
+const enhancer = applyMiddleware(thunkMiddleware, loggerMiddleware); // 함수를 dispatch()하게 해줌
+const reduxDevtool = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(); // Chrome Extension Redux Devtools
+const store = createStore(rootReducer, compose(enhancer, reduxDevtool));
 
 let rootElement = document.getElementById('root');
 const render = Component => {

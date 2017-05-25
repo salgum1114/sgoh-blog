@@ -5,16 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "set NODE_ENV=production&&webpack -p --config webpack.prod.config.js",
+    "build:ui": "set NODE_ENV=production&&webpack -p --config webpack.prod.config.js",
     "build:server": "babel ./server --out-dir build/",
     "start:prod": "set NODE_ENV=production&&node ./build/server.js",
-    "dev": "webpack-dev-server --config webpack.dev.config.js --inline",
-    "start": "set NODE_ENV=development&&node ./build/server.js"
+    "start:ui": "webpack-dev-server --config webpack.dev.config.js --inline",
+    "start": "set NODE_ENV=development && nodemon --exec babel-node --presets es2015 ./server/server.js --watch ./server"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.16.1",
+    "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
@@ -43,6 +44,7 @@
     "muicss": "^0.9.16",
     "path": "^0.12.7",
     "react-tap-event-plugin": "^2.0.1",
+    "redux-logger": "^3.0.6",
     "style-loader": "^0.17.0",
     "webpack": "^2.4.1",
     "webpack-dev-server": "^2.4.2"

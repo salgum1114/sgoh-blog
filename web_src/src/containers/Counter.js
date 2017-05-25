@@ -14,12 +14,12 @@ class Counter extends Component {
     
     handleAdd = () => {
         const { handleIncrement } = this.props;
-        handleIncrement();
+        handleIncrement(this.props.number);
     }
 
     handleRemove = () => {
         const { handleDecrement } = this.props;
-        handleDecrement();
+        handleDecrement(this.props.number);
     }
 
     render() {
@@ -56,8 +56,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchProps = (dispatch) => {
     return {
-        handleIncrement: () => { dispatch(actions.increment())},
-        handleDecrement: () => { dispatch(actions.decrement())},
+        handleIncrement: (number) => { return dispatch(actions.incrementRequest(number))},
+        handleDecrement: (number) => { return dispatch(actions.decrementRequest(number))},
     }
 }
 export default connect(mapStateToProps, mapDispatchProps)(Counter);
